@@ -6,3 +6,4 @@ coverage
 .idea
 .phpunit.result.cache
 graph.jpeg
+tests/__snapshots__/

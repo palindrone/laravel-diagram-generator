@@ -1,8 +1,6 @@
 # Laravel ER Diagram Generator
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/beyondcode/laravel-er-diagram-generator.svg?style=flat-square)](https://packagist.org/packages/beyondcode/laravel-er-diagram-generator)
-[![Build Status](https://img.shields.io/travis/beyondcode/laravel-er-diagram-generator/master.svg?style=flat-square)](https://travis-ci.org/beyondcode/laravel-er-diagram-generator)
-[![Quality Score](https://img.shields.io/scrutinizer/g/beyondcode/laravel-er-diagram-generator.svg?style=flat-square)](https://scrutinizer-ci.com/g/beyondcode/laravel-er-diagram-generator)
 [![Total Downloads](https://img.shields.io/packagist/dt/beyondcode/laravel-er-diagram-generator.svg?style=flat-square)](https://packagist.org/packages/beyondcode/laravel-er-diagram-generator)
 
 This package lets you generate entity relation diagrams by inspecting the relationships defined in your model files.
@@ -46,7 +44,7 @@ If you are using Laravel 5.5+, the package will automatically register the servi
 If you are using Lumen, you will need to add the following to `bootstrap\app.php`:
 
 ```php
-\\ Register Service Providers
+# Register Service Providers
 $app->register(BeyondCode\ErdGenerator\ErdGeneratorServiceProvider::class);
 ```
 
@@ -85,6 +83,52 @@ Or use one of the other [output formats](https://www.graphviz.org/doc/info/outpu
 ```bash
 php artisan generate:erd output.svg --format=svg
 ```
+
+### Text Output
+
+If you want to generate a text representation of the ER diagram instead of an image, you can use the `--text-output` option:
+
+```bash
+php artisan generate:erd output.txt --text-output
+```
+
+This will generate a text file with the GraphViz DOT representation of the ER diagram.
+
+### Structured Text Output for AI Models
+
+If you want to generate a structured text representation of the ER diagram that is more suitable for AI models, simply specify a filename with a `.txt` extension:
+
+```bash
+php artisan generate:erd output.txt
+```
+
+This will automatically generate a Markdown file with a structured representation of the entities and their relationships, which can be used as context for AI models.
+
+#### Output Format
+
+The structured output format looks like this:
+
+```markdown
+# Entity Relationship Diagram
+
+## Entities
+
+### User (`App\Models\User`)
+
+#### Attributes:
+- `id` (integer)
+- `name` (string)
+- `email` (string)
+...
+
+## Relationships
+
+### User Relationships
+- **HasMany** `posts` to Post (Local Key: `id`, Foreign Key: `user_id`)
+...
+```
+
+This format is particularly useful when providing context to AI models about your database structure.
 
 ## Customization
 
