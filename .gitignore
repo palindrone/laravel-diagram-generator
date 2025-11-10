@@ -4,5 +4,6 @@ docs
 vendor
 coverage
 .idea
-tests/__snapshots__/
 .phpunit.result.cache
+graph.jpeg
+tests/__snapshots__/

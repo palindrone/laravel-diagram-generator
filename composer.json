@@ -1,11 +1,11 @@
 {
-    "name": "beyondcode/laravel-er-diagram-generator",
+    "name": "palindrone/laravel-diagram-generator",
     "description": "Generate ER diagrams from your Laravel models.",
     "keywords": [
         "beyondcode",
         "laravel-er-diagram-generator"
     ],
-    "homepage": "https://github.com/beyondcode/laravel-er-diagram-generator",
+    "homepage": "https://github.com/palindrone/laravel-diagram-generator",
     "license": "MIT",
     "authors": [
         {
